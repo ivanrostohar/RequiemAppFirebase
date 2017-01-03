@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">RequiemApp</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_forgot_password">Forgot your password?</string>
+    <string name="btn_link_to_register">Not a member? Get registered in Firebase now!</string>
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="btn_back"><![CDATA[<< Back]]></string>
+    <string name="btn_register">Register</string>
+    <string name="btn_link_to_login">Already registered. Login Me!</string>
+    <string name="btn_sign_out">Sign Out</string>
+
+    <string name="msg_forgot_password">We just need your registered Email address to sent you password reset instructions.</string>
+    <string name="msg_email_error">Please check the email you entered</string>
+    <string name="msg_password_error">Password must have more then 6 characters</string>
+    <string name="msg_signUp">User with this credentials is not in the database...Please register first!</string>
+    <string name="msg_login">Wrong login username and / or password(must have 6 or more characters)!</string>
+    <string name="msg_check_email">Enter your register email</string>
+    <string name="msg_password_reset">Instructions have been sent to provided email</string>
+    <string name="msg_password_reset_failed">Failed to reset password!</string>
+
+    <string name="lbl_forgot_password">Forgot password?</string>
+
 </resources>
