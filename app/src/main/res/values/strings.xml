@@ -3,6 +3,14 @@
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="hint_name">User Name</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_phone">Contact</string>
+    <string name="hint_mjesto">Mjesto</string>
+    <string name="hint_usluga">Usluga</string>
+    <string name="hint_datum">Datum</string>
+    <string name="hint_vrijeme">Vrijeme</string>
+    <string name="hint_dodatno">Dodatno</string>
 
     <string name="btn_login">LOGIN</string>
     <string name="btn_forgot_password">Forgot your password?</string>

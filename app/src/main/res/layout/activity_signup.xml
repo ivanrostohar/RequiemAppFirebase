@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coorinator_layout_signup"
     android:layout_width="match_parent"
@@ -17,12 +18,55 @@
         android:padding="@dimen/activity_vertical_margin">
 
         <ImageView
-            android:layout_width="@dimen/logo_margin"
-            android:layout_height="@dimen/logo_margin"
+            android:layout_width="@dimen/logo_login_margin"
+            android:layout_height="@dimen/logo_login_margin"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
-            android:src="@mipmap/ic_launcher"/>
-        
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/requiemicon"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"
+                android:inputType="textWebEmailAddress"
+                android:maxLines="1"
+                android:textColor="@color/white"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edt_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_address"
+                android:inputType="textWebEmailAddress"
+                android:maxLines="1"
+                android:textColor="@color/white"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_phone_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edt_phone_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_phone"
+                android:inputType="textWebEmailAddress"
+                android:maxLines="1"
+                android:textColor="@color/white"/>
+        </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_email"
             android:layout_width="match_parent"
@@ -57,7 +101,7 @@
             android:text="@string/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:background="@color/colorAccent"
             android:textColor="@android:color/black"
             android:textStyle="bold"
@@ -68,7 +112,6 @@
             android:text="@string/btn_forgot_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:background="@null"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent"
@@ -77,9 +120,8 @@
         <Button
             android:id="@+id/btn_sign_in"
             android:text="@string/btn_link_to_login"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:background="@null"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -91,8 +133,9 @@
         android:id="@+id/progressBar"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_gravity="center|bottom"
         android:layout_marginBottom="20dp"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="bottom|right" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -17,14 +17,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ivan.requiemapp.R;
+import com.example.ivan.requiemapp.models.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText edt_email, edt_password;
+    private EditText edt_name, edt_address, edt_phone, edt_email, edt_password;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
@@ -32,6 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputLayout til_email, til_password;
     private CoordinatorLayout coordinatorLayoutSignUp;
     private Snackbar snackbar;
+    private UserModel user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        edt_name = (EditText) findViewById(R.id.edt_name);
+        edt_address = (EditText) findViewById(R.id.edt_address);
+        edt_phone = (EditText) findViewById(R.id.edt_phone_contact);
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_password = (EditText) findViewById(R.id.edt_password);
         btnSignIn = (Button) findViewById(R.id.btn_sign_in);
@@ -67,8 +75,15 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 email = edt_email.getText().toString().trim();
                 password = edt_password.getText().toString().trim();
+
+                user = new UserModel(edt_name.getText().toString().trim(),
+                        edt_address.getText().toString().trim(),
+                        email,
+                        edt_phone.getText().toString().trim()
+                        );
 
                 if (TextUtils.isEmpty(email)) {
                     til_email.setError(getString(R.string.msg_email_error));
@@ -94,7 +109,11 @@ public class SignUpActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
 
                             if (task.isSuccessful()) {
-                                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
+                                FirebaseUser userId = firebaseAuth.getCurrentUser();
+                                databaseReference.child(userId.getUid()).setValue(user);
+
+                                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                                 finish();
                             }
                             else{
